@@ -1,46 +1,105 @@
-# Getting Started with Create React App
+#  React Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+##  Технологии
 
-## Available Scripts
+- **React** – фронтенд-библиотека
+- **React Router** – маршрутизация
+- **TypeScript** – типизация
+- **Tailwind CSS** – стили
+- **Axios** – HTTP-запросы
+- **JWT** – авторизация через токен
+- **Feature-based architecture** – масштабируемая структура проекта
 
-In the project directory, you can run:
+---
 
-### `npm start`
+##  Установка
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```bash
+git clone https://github.com/your-username/react-app
+cd react-app
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+npm install
 
-### `npm test`
+cp .env.example .env
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## 🏃‍♂️ Запуск
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+npm start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🏗 Архитектура
 
-### `npm run eject`
+```bash
+src/
+├── app/            # Точка входа (App.tsx, index.tsx)
+├── features/       # Модули (auth, home и т.д.)
+│   └── auth/
+│       ├── components/   # Формы и подкомпоненты
+│       ├── pages/        # Страницы Login, Register
+│       └── context/      # AuthContext
+├── shared/         # Переиспользуемые сущности
+│   ├── components/     # UI-компоненты (Navbar, Button)
+│   ├── hooks/          # useAuth и прочие хуки
+│   ├── api/            # Axios-инстансы и запросы
+│   ├── services/       # Логика общения с API
+│   └── utils/          # Вспомогательные функции (например, токены)
+├── router/         # React Router
+├── index.css       # Tailwind стили
+└── .env            # Переменные окружения
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+---
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+##  Авторизация
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- При входе сохраняется JWT access token в `localStorage`
+- Токен используется в заголовке:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```http
+Authorization: Bearer <токен>
+```
 
-## Learn More
+- Проверка авторизации — через `useAuth()`
+- Защищённые маршруты — через `PrivateRoute`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+##  Как писать код
+
+- **Page** — для страницы (LoginPage, HomePage)
+- **Form** — только за форму
+- **Context** — только для хранения состояния
+- **Hook** — для абстракции логики
+- **Service** — для общения с API
+- **Shared Component** — если переиспользуется
+- **Route** — только маршруты и защита
+
+---
+
+##  Обновление зависимостей
+
+После установки новой библиотеки:
+
+```bash
+npm install some-package
+```
+
+Затем обнови lock-файл:
+
+```bash
+npm install --package-lock-only
+```
+
+---
+
+##  .env
+
+Пример:
+
+```env
+REACT_APP_API_URL=http://localhost:5000/api
+```
