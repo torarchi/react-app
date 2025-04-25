@@ -14,8 +14,8 @@
 
 ##  Установка
 
-```bash
-git clone https://github.com/your-username/react-app
+```
+git clone https://github.com/torarchi/react-app
 cd react-app
 
 npm install
@@ -23,17 +23,17 @@ npm install
 cp .env.example .env
 
 
-## 🏃‍♂️ Запуск
+##  Запуск
 
-```bash
+```
 npm start
 ```
 
 ---
 
-## 🏗 Архитектура
+##  Архитектура
 
-```bash
+```
 src/
 ├── app/            # Точка входа (App.tsx, index.tsx)
 ├── features/       # Модули (auth, home и т.д.)
@@ -59,7 +59,7 @@ src/
 - При входе сохраняется JWT access token в `localStorage`
 - Токен используется в заголовке:
 
-```http
+```
 Authorization: Bearer <токен>
 ```
 
@@ -84,13 +84,13 @@ Authorization: Bearer <токен>
 
 После установки новой библиотеки:
 
-```bash
+```
 npm install some-package
 ```
 
 Затем обнови lock-файл:
 
-```bash
+```
 npm install --package-lock-only
 ```
 
@@ -100,6 +100,6 @@ npm install --package-lock-only
 
 Пример:
 
-```env
+```
 REACT_APP_API_URL=http://localhost:5000/api
 ```
